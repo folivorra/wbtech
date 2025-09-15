@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 //Разработать программу, которая переворачивает подаваемую на вход строку.
 //Например: при вводе строки «главрыба» вывод должен быть «абырвалг».
@@ -8,7 +12,9 @@ import "fmt"
 func main() {
 	var str string
 
-	fmt.Scanln(&str)
+	reader := bufio.NewReader(os.Stdin)
+
+	str, _ = reader.ReadString('\n')
 	runes := []rune(str)
 	for i := len(runes) - 1; i >= 0; i-- {
 		fmt.Print(string(runes[i]))
